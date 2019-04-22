@@ -2,17 +2,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <style type="text/css">
+
 .container {
-width: 50%;
-margin: 15px auto;
+    width: 50%;
+    margin: 15px auto;
 }
+
 </style>
 
-
-
 <?php
-
-
 
 echo "
 <form action='".$_SERVER['PHP_SELF']."' method='post'>
