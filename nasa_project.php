@@ -1,5 +1,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<style type="text/css">
+
+.container {
+    width: 50%;
+    margin: 15px auto;
+}
+
+</style>
 
 <?php
 
@@ -125,6 +133,67 @@ if($_POST['submit'] == 'submit')
 	        }
 	    }
 	});
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: <?php echo $datesvalue;?>,
+        datasets: [{
+            label: 'Closest Astroid',
+            data: <?php echo $closest_value;?>,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+var ctx1 = document.getElementById('myChart1').getContext('2d');
+var myChart1 = new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: <?php echo $datesvalue;?>,
+        datasets: [{
+            label: 'Fastest Astroid',
+            data: <?php echo $fastest_value;?>,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+var ctx2 = document.getElementById('myChart2').getContext('2d');
+var myChart2 = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: <?php echo $datesvalue;?>,
+        datasets: [{
+            label: 'Avg Speeds Astroid',
+            data: <?php echo $avgSpeed_value;?>,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
 </script>
-
- 
