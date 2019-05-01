@@ -1,13 +1,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
-<style type="text/css">
-
-.container {
-    width: 50%;
-    margin: 15px auto;
-}
-
-</style>
 
 <?php
 
@@ -36,19 +28,111 @@ if($_POST['submit'] == 'submit')
 	
 	foreach($var2 as $key1=>$value1){
 		$dates[]=$key1;
+		if($key1===date('Y-m-d',strtotime($s_date))){
 		foreach($value1 as $key2=>$value2)
 		{
 			foreach($value2['close_approach_data'] as $key3=>$value3){
-				$fastest[]=$value3['relative_velocity']['kilometers_per_hour'];
+				$fastest1[]=$value3['relative_velocity']['kilometers_per_hour'];
 				$count_fastest=count($fastest);
-				$closest[]=$value3['miss_distance']['kilometers'];
+				$closest1[]=$value3['miss_distance']['kilometers'];
 				$count_closest=count($closest);
-				$avgspeed[]=$value3['relative_velocity']['kilometers_per_second'];
+				$avgspeed1[]=$value3['relative_velocity']['kilometers_per_second'];
 				$count_avgspeed=count($avgspeed);
-			}
-			
-			
+			}	
 		}
+	}
+		if($key1===date('Y-m-d',strtotime("+1 day",$s_date))){
+			foreach($value1 as $key2=>$value2)
+			{
+				foreach($value2['close_approach_data'] as $key3=>$value3){
+					$fastest2[]=$value3['relative_velocity']['kilometers_per_hour'];
+					$count_fastest=count($fastest);
+					$closest2[]=$value3['miss_distance']['kilometers'];
+					$count_closest=count($closest);
+					$avgspeed2[]=$value3['relative_velocity']['kilometers_per_second'];
+					$count_avgspeed=count($avgspeed);
+				}	
+			}
+		}
+		if($key1===date('Y-m-d',strtotime("+2 day",$s_date))){
+			foreach($value1 as $key2=>$value2)
+			{
+				foreach($value2['close_approach_data'] as $key3=>$value3){
+					$fastest3[]=$value3['relative_velocity']['kilometers_per_hour'];
+					$count_fastest=count($fastest);
+					$closest3[]=$value3['miss_distance']['kilometers'];
+					$count_closest=count($closest);
+					$avgspeed3[]=$value3['relative_velocity']['kilometers_per_second'];
+					$count_avgspeed=count($avgspeed);
+				}	
+			}
+		}
+		if($key1===date('Y-m-d',strtotime("+3 day",$s_date))){
+			foreach($value1 as $key2=>$value2)
+			{
+				foreach($value2['close_approach_data'] as $key3=>$value3){
+					$fastest4[]=$value3['relative_velocity']['kilometers_per_hour'];
+					$count_fastest=count($fastest);
+					$closest4[]=$value3['miss_distance']['kilometers'];
+					$count_closest=count($closest);
+					$avgspeed4[]=$value3['relative_velocity']['kilometers_per_second'];
+					$count_avgspeed=count($avgspeed);
+				}	
+			}
+		}
+		if($key1===date('Y-m-d',strtotime("+4 day",$s_date))){
+			foreach($value1 as $key2=>$value2)
+			{
+				foreach($value2['close_approach_data'] as $key3=>$value3){
+					$fastest5[]=$value3['relative_velocity']['kilometers_per_hour'];
+					$count_fastest=count($fastest);
+					$closest5[]=$value3['miss_distance']['kilometers'];
+					$count_closest=count($closest);
+					$avgspeed5[]=$value3['relative_velocity']['kilometers_per_second'];
+					$count_avgspeed=count($avgspeed);
+				}	
+			}
+		}
+		if($key1===date('Y-m-d',strtotime("+5 day",$s_date))){
+			foreach($value1 as $key2=>$value2)
+			{
+				foreach($value2['close_approach_data'] as $key3=>$value3){
+					$fastest6[]=$value3['relative_velocity']['kilometers_per_hour'];
+					$count_fastest=count($fastest);
+					$closest6[]=$value3['miss_distance']['kilometers'];
+					$count_closest=count($closest);
+					$avgspeed6[]=$value3['relative_velocity']['kilometers_per_second'];
+					$count_avgspeed=count($avgspeed);
+				}	
+			}
+		}
+		if($key1===date('Y-m-d',strtotime("+6 day",$s_date))){
+			foreach($value1 as $key2=>$value2)
+			{
+				foreach($value2['close_approach_data'] as $key3=>$value3){
+					$fastest7[]=$value3['relative_velocity']['kilometers_per_hour'];
+					$count_fastest=count($fastest);
+					$closest7[]=$value3['miss_distance']['kilometers'];
+					$count_closest=count($closest);
+					$avgspeed7[]=$value3['relative_velocity']['kilometers_per_second'];
+					$count_avgspeed=count($avgspeed);
+				}	
+			}
+		}
+		if($key1===date('Y-m-d',strtotime("+7 day",$s_date))){
+			foreach($value1 as $key2=>$value2)
+			{
+				foreach($value2['close_approach_data'] as $key3=>$value3){
+					$fastest8[]=$value3['relative_velocity']['kilometers_per_hour'];
+					$count_fastest=count($fastest);
+					$closest8[]=$value3['miss_distance']['kilometers'];
+					$count_closest=count($closest);
+					$avgspeed8[]=$value3['relative_velocity']['kilometers_per_second'];
+					$count_avgspeed=count($avgspeed);
+				}	
+			}
+		}
+	}
 	}
 	$count=count($dates);
 	$datesvalue=json_encode($dates);
@@ -58,6 +142,16 @@ if($_POST['submit'] == 'submit')
 	print_r("closest value".$closest_value.'<br />');
 	print_r("fastest value".$fastest_value.'<br />');
 	print_r("avgspeed value".$avgspeed_value.'<br />');
+	echo '<table><tr><td>Date</td><td>closest </td><td>fastest </td><td>Avg </td></tr>
+	<tr><td>'.date('Y-m-d',strtotime($s_date)).'</td><td>'.$closest_value1.'</td><td>'.$fastest_value1.'</td><td>'.$avgspeed_value1.'</td></tr>
+	<tr><td>'.date('Y-m-d',strtotime("+1 day",$s_date)).'</td><td>'.$closest_value2.'</td><td>'.$fastest_value2.'</td><td>'.$avgspeed_value2.'</td></tr>
+	<tr><td>'.date('Y-m-d',strtotime("+2 day",$s_date)).'</td><td>'.$closest_value3.'</td><td>'.$fastest_value3.'</td><td>'.$avgspeed_value3.'</td></tr>
+	<tr><td>'.date('Y-m-d',strtotime("+3 day",$s_date)).'</td><td>'.$closest_value4.'</td><td>'.$fastest_value4.'</td><td>'.$avgspeed_value4.'</td></tr>
+	<tr><td>'.date('Y-m-d',strtotime("+4 day",$s_date)).'</td><td>'.$closest_value5.'</td><td>'.$fastest_value5.'</td><td>'.$avgspeed_value5.'</td></tr>
+	<tr><td>'.date('Y-m-d',strtotime("+5 day",$s_date)).'</td><td>'.$closest_value6.'</td><td>'.$fastest_value6.'</td><td>'.$avgspeed_value6.'</td></tr>
+	<tr><td>'.date('Y-m-d',strtotime("+6 day",$s_date)).'</td><td>'.$closest_value7.'</td><td>'.$fastest_value7.'</td><td>'.$avgspeed_value7.'</td></tr>
+	<tr><td>'.date('Y-m-d',strtotime("+7 day",$s_date)).'</td><td>'.$closest_value8.'</td><td>'.$fastest_value8.'</td><td>'.$avgspeed_value8.'</td></tr>
+	</table>';
 	curl_close();	
 }	
 ?>
@@ -133,67 +227,6 @@ if($_POST['submit'] == 'submit')
 	        }
 	    }
 	});
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: <?php echo $datesvalue;?>,
-        datasets: [{
-            label: 'Closest Astroid',
-            data: <?php echo $closest_value;?>,
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-var ctx1 = document.getElementById('myChart1').getContext('2d');
-var myChart1 = new Chart(ctx1, {
-    type: 'bar',
-    data: {
-        labels: <?php echo $datesvalue;?>,
-        datasets: [{
-            label: 'Fastest Astroid',
-            data: <?php echo $fastest_value;?>,
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-var ctx2 = document.getElementById('myChart2').getContext('2d');
-var myChart2 = new Chart(ctx2, {
-    type: 'bar',
-    data: {
-        labels: <?php echo $datesvalue;?>,
-        datasets: [{
-            label: 'Avg Speeds Astroid',
-            data: <?php echo $avgSpeed_value;?>,
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
 </script>
+
+ 
